@@ -2,8 +2,7 @@
 
 $site-max-width: 1272;
 
-@mixin block($background-color: blue, $height: 24) {
-  background-color: $background-color;
+@mixin block($height: 24) {
   display: block;
   height: #{$height}px;
 }
@@ -12,22 +11,8 @@ $site-max-width: 1272;
   box-sizing: content-box;
   max-width: #{$site-max-width}px;
   margin: auto;
-
-  @if $padding {
-    padding-left: 48px;
-    padding-right: 48px;
-
-    //  @media only screen and (min-width: #{get-rem-from-px($bkpt-site--medium)}em) {
-    //    padding-left: 14%;
-    //    padding-right: 14%;
-    //  }
-    //
-    //  @media only screen and (min-width: #{get-rem-from-px($bkpt-site--x-wide)}em) {
-    //    padding-left: 3%;
-    //    padding-right: 3%;
-    //  }
-    //}
-  }
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 body {
@@ -41,36 +26,55 @@ body {
   box-sizing: border-box;
 }
 
+$colour-by-index: (
+    1: #0288d1,
+    2: #629f43,
+    3: #cf0c4e,
+    4: #569037
+);
+
 .block {
+  background-clip: content-box;
   color: white;
-  outline: 1px solid black;
+
+  @each $index, $colour in $colour-by-index {
+    .grid &:nth-child(#{$index}n) {
+      background-color: $colour;
+    }
+  }
+
+  &:not(+ .wrapper) {
+    background-color: #cf0c4e;
+  }
+
 }
 
 .block--12 {
-  @include block(rebeccapurple, 12);
+  @include block(12);
 }
 
 .block--24 {
-  @include block(red, 24);
+  @include block(24);
 }
 
 .block--36 {
-  @include block(blue, 36);
+  @include block(36);
 }
 
 .block--48 {
-  @include block(green, 48);
+  @include block(48);
 }
 
 .block--72 {
-  @include block(goldenrod, 72);
+  @include block(72);
 }
 
 .button {
+  background-clip: border-box;
   border-width: 0;
   display: inline-block;
+  margin-left: 12px;
   min-width: 96px;
-  outline: 1px solid black;
   padding: 12px;
   width: auto;
 }
