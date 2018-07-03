@@ -20,8 +20,18 @@ gulp.task('sass:build', ['css:clean'], () => {
              .pipe(gulp.dest('web/styles/css/'));
 });
 
-gulp.task('sass:watch', ['sass:build'], () => {
-  gulp.watch('web/styles/*.scss', ['sass:build'])
+gulp.task('sass-css-grid-layout:build', ['sass:build'], () => {
+  return gulp.src('web/styles/styles-css-grid-layout.scss')
+             .pipe(sourcemaps.init())
+             .pipe(sassGlob())
+             .pipe(sass().on('error', sass.logError))
+             // .pipe(rename('all.css'))
+             .pipe(sourcemaps.write('./'))
+             .pipe(gulp.dest('web/styles/css/'));
+});
+
+gulp.task('sass:watch', ['sass-css-grid-layout:build'], () => {
+  gulp.watch('web/styles/*.scss', ['sass-css-grid-layout:build'])
 });
 
 gulp.task('watch', ['sass:watch']);

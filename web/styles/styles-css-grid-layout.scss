@@ -1,0 +1,122 @@
+@mixin block($height: 24) {
+  display: block;
+  height: #{$height}px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+$colour-by-index: (
+    1: #0288d1,
+    2: #629f43,
+    3: #cf0c4e,
+    4: #569037
+);
+
+.block {
+  background-clip: content-box;
+  color: white;
+
+  @each $index, $colour in $colour-by-index {
+    .grid &:nth-child(#{$index}n) {
+      background-color: $colour;
+    }
+  }
+
+  &:not(+ .wrapper) {
+    background-color: #cf0c4e;
+  }
+
+}
+
+.block--12 {
+  @include block(12);
+}
+
+.block--24 {
+  @include block(24);
+}
+
+.block--36 {
+  @include block(36);
+}
+
+.block--48 {
+  @include block(48);
+}
+
+.block--72 {
+  @include block(72);
+}
+
+.button {
+  background-clip: border-box;
+  border-width: 0;
+  display: inline-block;
+  min-width: 96px;
+  padding: 12px;
+  width: auto;
+}
+
+$gutter: 24;
+$bkpt-medium: 768;
+$bkpt-large: 900;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: #{$gutter}px;
+  margin: 0 #{$gutter}px;
+  width: auto;
+
+  & > div {
+    grid-column: 1 / -1;
+
+    &.h2,
+    &.prefill-link {
+      @media only screen and (min-width: #{$bkpt-large}px) {
+        grid-column: 3 / -3;
+      }
+    }
+
+    &.text-input:nth-child(even) {
+      @media only screen and (min-width: #{$bkpt-medium}px) {
+        grid-column: 1 / 7;
+      }
+    }
+
+    &.text-input:nth-child(odd) {
+      @media only screen and (min-width: #{$bkpt-medium}px) {
+        grid-column: 7 / 13;
+      }
+    }
+
+    &.text-input:nth-child(even) {
+      @media only screen and (min-width: #{$bkpt-large}px) {
+        grid-column: 3 / 7;
+      }
+    }
+
+    &.text-input:nth-child(odd) {
+      @media only screen and (min-width: #{$bkpt-large}px) {
+        grid-column: 7 / 11;
+      }
+    }
+
+  }
+
+  & > button {
+    @media only screen and (min-width: #{$bkpt-large}px) {
+      grid-column-start: 3;
+    }
+  }
+
+}
