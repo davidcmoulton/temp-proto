@@ -1,6 +1,7 @@
 "use strict";
 
 const del = require('del');
+const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass');
@@ -19,5 +20,10 @@ gulp.task('sass:build', ['css:clean'], () => {
              .pipe(gulp.dest('web/styles/css/'));
 });
 
-gulp.task('default', ['sass:build']);
+gulp.task('sass:watch', ['sass:build'], () => {
+  gulp.watch('web/styles/*.scss', ['sass:build'])
+});
 
+gulp.task('watch', ['sass:watch']);
+
+gulp.task('default', ['sass:build']);

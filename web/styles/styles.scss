@@ -1,2 +1,80 @@
 @import "grid";
 
+$site-max-width: 1272;
+
+@mixin block($background-color: blue, $height: 24) {
+  background-color: $background-color;
+  display: block;
+  height: #{$height}px;
+}
+
+@mixin wrapper($padding: true) {
+  box-sizing: content-box;
+  max-width: #{$site-max-width}px;
+  margin: auto;
+
+  @if $padding {
+    padding-left: 48px;
+    padding-right: 48px;
+
+    //  @media only screen and (min-width: #{get-rem-from-px($bkpt-site--medium)}em) {
+    //    padding-left: 14%;
+    //    padding-right: 14%;
+    //  }
+    //
+    //  @media only screen and (min-width: #{get-rem-from-px($bkpt-site--x-wide)}em) {
+    //    padding-left: 3%;
+    //    padding-right: 3%;
+    //  }
+    //}
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.block {
+  color: white;
+  outline: 1px solid black;
+}
+
+.block--12 {
+  @include block(rebeccapurple, 12);
+}
+
+.block--24 {
+  @include block(red, 24);
+}
+
+.block--36 {
+  @include block(blue, 36);
+}
+
+.block--48 {
+  @include block(green, 48);
+}
+
+.block--72 {
+  @include block(goldenrod, 72);
+}
+
+.button {
+  border-width: 0;
+  display: inline-block;
+  min-width: 96px;
+  outline: 1px solid black;
+  padding: 12px;
+  width: auto;
+}
+
+.wrapper {
+  @include wrapper();
+}

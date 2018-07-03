@@ -67,7 +67,9 @@
  * Set the spacing between your grid items.
  */
 
-$gutter: 1.6% !default;
+//$gutter: 1.6% !default;
+//$gutter: -24px;
+$gutter: 24px;
 
 /**
  * Would you like push and pull classes enabled?
@@ -88,7 +90,7 @@ $pull: false !default;
 //) !default;
 
 $breakpoints: (
-    "x-small" "(max-width: 319px)", "small" "(min-width: 480px)", "medium" "(min-width: 730px)", "large" "(min-width: 900px)", "x-large" "(min-width: 1200px)"
+    "x-small" "(max-width: 319px)", "small" "(min-width: 480px)", "medium" "(min-width: 768px)", "large" "(min-width: 900px)", "x-large" "(min-width: 1200px)"
 ) !default;
 
 /**
@@ -556,4 +558,8 @@ $breakpoint-has-pull: ("x-small", "small", "medium", "large", "x-large") !defaul
     }
   }
 
+}
+
+.grid__new_row {
+  clear: left;
 }
