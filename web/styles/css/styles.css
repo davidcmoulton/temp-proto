@@ -472,7 +472,7 @@
     min-height: 1px;
     width: 91.666%; } }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   .large--one-whole {
     width: 100%; }
   /**
@@ -841,7 +841,7 @@
   .push--medium--eleven-twelfths {
     left: 91.666%; } }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   /**
    * Zero
    */
