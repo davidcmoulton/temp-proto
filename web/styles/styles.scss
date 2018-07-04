@@ -82,3 +82,29 @@ $colour-by-index: (
 .wrapper {
   @include wrapper();
 }
+
+.clearfix {
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+}
+
+.blg-24 {
+  margin-bottom: #{$baseline-measure-4}px;
+}
+
+.blg-36 {
+  margin-bottom: #{$baseline-measure-6}px;
+}
+
+.blg-48 {
+  margin-bottom: #{$baseline-measure-8}px;
+}

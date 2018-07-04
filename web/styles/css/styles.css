@@ -1009,4 +1009,20 @@ body {
   padding-left: 24px;
   padding-right: 24px; }
 
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.blg-24 {
+  margin-bottom: 24px; }
+
+.blg-36 {
+  margin-bottom: 36px; }
+
+.blg-48 {
+  margin-bottom: 48px; }
+
 /*# sourceMappingURL=styles.css.map */

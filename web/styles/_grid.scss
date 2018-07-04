@@ -563,3 +563,13 @@ $breakpoint-has-pull: ("x-small", "small", "medium", "large", "x-large") !defaul
 .grid__new_row {
   clear: left;
 }
+$baseline-measure-1: 6;
+$baseline-measure-2: $baseline-measure-1 * 2;  //12
+$baseline-measure-3: $baseline-measure-1 * 3;  // 18
+$baseline-measure-4: $baseline-measure-1 * 4;  // 24
+$baseline-measure-5: $baseline-measure-1 * 5;
+$baseline-measure-6: $baseline-measure-1 * 6; // 36
+$baseline-measure-7: $baseline-measure-1 * 7;
+$baseline-measure-8: $baseline-measure-1 * 8; //48
+$baseline-measure-9: $baseline-measure-1 * 9;
+
