@@ -26,27 +26,10 @@ body {
   box-sizing: border-box;
 }
 
-$colour-by-index: (
-    1: #0288d1,
-    2: #629f43,
-    3: #cf0c4e,
-    4: #569037
-);
-
 .block {
   background-clip: content-box;
+  background-color: #0288d1;
   color: white;
-
-  @each $index, $colour in $colour-by-index {
-    .grid &:nth-child(#{$index}n) {
-      background-color: $colour;
-    }
-  }
-
-  &:not(+ .wrapper) {
-    background-color: #cf0c4e;
-  }
-
 }
 
 .block--12 {

@@ -961,17 +961,8 @@ body {
 
 .block {
   background-clip: content-box;
+  background-color: #0288d1;
   color: white; }
-  .grid .block:nth-child(1n) {
-    background-color: #0288d1; }
-  .grid .block:nth-child(2n) {
-    background-color: #629f43; }
-  .grid .block:nth-child(3n) {
-    background-color: #cf0c4e; }
-  .grid .block:nth-child(4n) {
-    background-color: #569037; }
-  .block {
-    background-color: #cf0c4e; }
 
 .block--12 {
   display: block;
